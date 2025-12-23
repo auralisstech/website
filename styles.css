@@ -1,0 +1,620 @@
+/* ===== CSS Variables ===== */
+:root {
+    /* Primary Colors */
+    --color-primary-blue: #0091D4;
+    --color-secondary-blue: #00B8D9;
+    --color-accent-orange: #FF7F32;
+
+    /* Text Colors */
+    --color-text-primary: #1D1D1B;
+    --color-text-secondary: #8C8C8C;
+    --color-white: #FFFFFF;
+    --color-background: #FFFFFF;
+    --color-background-secondary: #F5F5F5;
+
+    /* Fonts */
+    --font-primary: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 64px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    overflow: hidden;
+    /* Prevent scrolling completely */
+    height: 100vh;
+    /* Fill screen exactly */
+    display: flex;
+    flex-direction: column;
+}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: #ffffff;
+    /* Fallback */
+}
+
+/* ===== Header Section ===== */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    z-index: 100;
+    background: transparent;
+}
+
+.header-spacer {
+    flex: 1;
+}
+
+.login-btn {
+    padding: 12px 28px;
+    background: var(--color-accent-orange);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    font-family: var(--font-primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 16px rgba(255, 127, 50, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+.login-btn:hover {
+    background: var(--color-accent-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 127, 50, 0.5);
+}
+
+.login-btn .btn-icon {
+    transition: transform var(--transition-fast);
+}
+
+.login-btn:hover .btn-icon {
+    transform: translateX(3px);
+}
+
+/* ===== Main Section ===== */
+#main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
+    /* Removed min-height: 100vh to fit within body */
+}
+
+
+
+
+
+.content-wrapper {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ===== Centered Logo Section ===== */
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    /* Stack vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    /* Removed gap */
+    margin-bottom: 12px;
+    /* significantly reduced from spacing-xl to bring slogan close */
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.logo-icon {
+    height: 120px;
+    /* Increased from 80px */
+    width: auto;
+    transition: transform var(--transition-medium);
+    /* Blends white background of image with page background */
+    mix-blend-mode: multiply;
+    /* excessive brightness/contrast forces light-gray backgrounds to white so they blend */
+    filter: contrast(1.1) brightness(1.1);
+}
+
+.logo-text {
+    height: 140px;
+    /* Increased from 100px */
+    width: auto;
+    margin-top: -30px;
+    /* Adjusted negative margin for larger size */
+    transition: transform var(--transition-medium);
+    /* Blends white background of image with page background */
+    mix-blend-mode: multiply;
+    /* excessive brightness/contrast forces light-gray backgrounds to white so they blend */
+    filter: contrast(1.1) brightness(1.1);
+}
+
+.logo-icon:hover,
+.logo-text:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Dynamic Slogan ===== */
+.slogan-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+.slogan {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    /* Changed to dark black (#1D1D1B) */
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    padding-left: 40px;
+    /* Shifts text right to visually balance the reserved stabilizer space */
+}
+
+.slogan-stabilizer {
+    display: inline-block;
+    width: 13.5ch;
+    /* Optimized width for 'Productivity.' */
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.dynamic-text {
+    color: var(--color-primary-blue);
+    font-weight: 700;
+    display: inline-block;
+    /* Removed min-width and text-align: left to ensure true centering */
+    animation: textFadeIn 0.5s ease-in-out;
+}
+
+.cursor-blink {
+    color: var(--color-primary-blue);
+    font-weight: 700;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Coming Soon Message ===== */
+.coming-soon {
+    font-size: 2rem;
+    /* Reduced from 5rem */
+    font-weight: 800;
+    color: var(--color-text-primary);
+    letter-spacing: 6px;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    animation: bounceIn 0.8s ease-out 0.2s both;
+    background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-accent-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(30px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-10px);
+    }
+
+    70% {
+        transform: scale(0.97) translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ===== CTA Button ===== */
+.notify-btn {
+    padding: 18px 48px;
+    background: linear-gradient(135deg, var(--color-primary-blue), var(--color-accent-orange));
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    font-family: var(--font-primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 24px rgba(0, 145, 212, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.notify-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.notify-btn:hover::before {
+    left: 100%;
+}
+
+.notify-btn:hover {
+    background: linear-gradient(135deg, var(--color-accent-orange), var(--color-primary-blue));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255, 127, 50, 0.4);
+}
+
+.notify-btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-icon {
+    transition: transform var(--transition-fast);
+}
+
+.notify-btn:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+/* ===== Email Form ===== */
+.email-form {
+    display: none;
+    margin-top: var(--spacing-md);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: var(--spacing-sm);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.email-form.active {
+    display: flex;
+}
+
+#emailInput {
+    flex: 1;
+    padding: 16px 24px;
+    border: 2px solid var(--color-background-secondary);
+    border-radius: 50px;
+    font-size: 15px;
+    font-family: var(--font-primary);
+    transition: all var(--transition-medium);
+    outline: none;
+    background: var(--color-white);
+}
+
+#emailInput:focus {
+    border-color: var(--color-primary-blue);
+    box-shadow: 0 0 0 4px rgba(0, 145, 212, 0.1);
+}
+
+#emailInput::placeholder {
+    color: var(--color-text-secondary);
+}
+
+#submitEmail {
+    padding: 16px 32px;
+    background: var(--color-primary-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    font-family: var(--font-primary);
+    white-space: nowrap;
+}
+
+#submitEmail:hover {
+    background: var(--color-secondary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 145, 212, 0.3);
+}
+
+.success-message {
+    display: none;
+    margin-top: var(--spacing-md);
+    color: var(--color-secondary-blue);
+    font-weight: 600;
+    font-size: 1.1rem;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* ===== Footer Removed ===== */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--spacing-lg);
+    /* Add space above */
+    margin-bottom: 0;
+}
+
+
+.contact-label {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.contact-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.contact-link:hover {
+    color: var(--color-accent-orange);
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.legal-links {
+    margin-bottom: var(--spacing-sm);
+    font-size: 14px;
+}
+
+.legal-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.legal-links a:hover {
+    color: var(--color-primary-blue);
+}
+
+.separator {
+    margin: 0 var(--spacing-sm);
+    color: var(--color-text-secondary);
+}
+
+.copyright {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+/* ===== Animations ===== */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.mobile-break {
+    display: none;
+}
+
+.mobile-highlight {
+    color: inherit;
+    font-weight: inherit;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    #header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .logo-icon {
+        height: 80px;
+        /* Increased for mobile */
+    }
+
+    .logo-text {
+        height: 90px;
+        /* Increased for mobile */
+    }
+
+    .login-btn {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+
+    .slogan {
+        font-size: 1.1rem;
+        padding-left: 0;
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    .mobile-break {
+        display: inline;
+    }
+
+    .mobile-highlight {
+        color: var(--color-primary-blue);
+        font-weight: 700;
+    }
+
+    .slogan-stabilizer {
+        width: auto;
+        display: inline;
+    }
+
+    /* .dynamic-text min-width removed for centering */
+
+    .coming-soon {
+        font-size: 1.5rem;
+        /* Reduced for mobile */
+        letter-spacing: 4px;
+    }
+
+    .notify-btn {
+        padding: 16px 40px;
+        font-size: 14px;
+    }
+
+    .email-form {
+        flex-direction: column;
+    }
+
+    #emailInput,
+    #submitEmail {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .slogan {
+        font-size: 1rem;
+    }
+
+    .coming-soon {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .notify-btn {
+        padding: 14px 32px;
+        font-size: 13px;
+    }
+
+    .social-icons {
+        gap: var(--spacing-sm);
+    }
+}
