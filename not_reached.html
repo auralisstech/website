@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6366f1;
-            --primary-hover: #4f46e5;
-            --bg-dark: #0f172a;
-            --text-light: #f8fafc;
-            --text-dim: #94a3b8;
+            --primary-color: #4f46e5;
+            /* Indigo 600 */
+            --primary-hover: #4338ca;
+            /* Indigo 700 */
+            --bg-base: #f8fafc;
+            /* Slate 50 */
+            --text-main: #1e293b;
+            /* Slate 800 */
+            --text-muted: #64748b;
+            /* Slate 500 */
             --error-color: #ef4444;
+            /* Red 500 */
         }
 
         * {
@@ -24,27 +30,29 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-base);
             background-image:
-                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.05) 0%, transparent 40%);
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-light);
+            color: var(--text-main);
             overflow: hidden;
         }
 
         .container {
             text-align: center;
             padding: 3.5rem 2.5rem;
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.02),
+                0 20px 25px -5px rgba(0, 0, 0, 0.05);
             max-width: 480px;
             width: 90%;
             animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -58,32 +66,33 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
         }
 
         .icon-wrapper {
             width: 80px;
             height: 80px;
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(254, 242, 242, 1);
+            /* Red 50 */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 2rem auto;
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(254, 202, 202, 0.5);
+            /* Red 200 */
         }
 
         h1 {
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -0.025em;
-            color: white;
+            color: var(--text-main);
         }
 
         p {
-            color: var(--text-dim);
+            color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 2.5rem;
@@ -96,20 +105,20 @@
             padding: 0.875rem 2.5rem;
             background: var(--primary-color);
             color: white;
-            font-weight: 500;
+            font-weight: 600;
             border-radius: 12px;
             text-decoration: none;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
         }
 
         .button:hover {
             background: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
         }
 
         .button:active {
