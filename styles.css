@@ -180,9 +180,10 @@ body {
 }
 
 .logo-text {
-    height: 140px;
-    /* Increased from 100px */
+    height: auto;
+    max-height: 140px;
     width: auto;
+    max-width: 90%;
     margin-top: -30px;
     /* Adjusted negative margin for larger size */
     transition: transform var(--transition-medium);
@@ -546,8 +547,8 @@ body {
     }
 
     .logo-text {
-        height: 90px;
-        /* Increased for mobile */
+        height: auto;
+        max-height: 90px;
     }
 
     .login-btn {
