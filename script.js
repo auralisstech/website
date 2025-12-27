@@ -47,8 +47,8 @@ if (mainLoginBtn) {
             mainLoginBtn.style.transform = '';
         }, 150);
 
-        const backendUrl = 'https://backend.auraliss.in';
-        const notReachedPage = 'not_reached.html';
+        const backendUrl = 'https://auraliss.duckdns.org:9095/login';
+        const notReachedPage = 'https://auraliss.duckdns.org:9095/login';
         
         // Timeout for the check (e.g., 5 seconds)
         const controller = new AbortController();
@@ -136,3 +136,4 @@ console.log('%cEngineered for Excellence',
     'font-size: 14px; color: #8C8C8C;');
 console.log('%cInterested in joining our team? Reach out to us!',
     'font-size: 12px; color: #FF7F32;');
+
