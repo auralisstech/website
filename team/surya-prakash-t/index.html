@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Surya Prakash T - Smart Factory Engineer Portfolio">
+    <title>Surya Prakash T</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background interactive canvas -->
+    <div id="canvas-container" aria-hidden="true"></div>
+
+    <!-- Navigation Header -->
+    <header id="header">
+        <a href="https://auraliss.in" class="logo-container">
+            <img src="../asset/logo.png" alt="Auraliss Logo" class="logo-icon" width="1024" height="852">
+            <img src="../asset/name-of-the-company.png" alt="Auraliss" class="logo-text" width="1080" height="265">
+        </a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main id="main">
+        <div class="portfolio-container">
+            <!-- Left Hero Content -->
+            <section class="hero-content">
+                <h1 class="hero-name">Surya Prakash T</h1>
+                <h2 class="hero-title">Smart Factory Engineer</h2>
+                <p class="hero-desc">
+                    Architecting Industry 4.0 apps.bridging AI and visualization for absolute operational dominance
+                </p>
+                <div class="hero-actions">
+                    <div class="contact-buttons">
+                        <button class="btn-mail" onclick="window.location.href='mailto:suryaprakashdeveloperai@gmail.com'" aria-label="Mail Surya Prakash T">
+                            <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            Mail Me
+                        </button>
+                        <a href="tel:+916382480091" class="btn-contact" aria-label="Call Surya Prakash T">
+                            <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4.5c-.55 0-1 .45-1 1C3.5 13.9 11.1 21.5 20.5 21.5c.55 0 1-.45 1-1v-4.12c0-.55-.45-1-1-1z"/>
+                            </svg>
+                            Call Me
+                        </a>
+                    </div>
+                    
+                    <div class="find-me-container">
+                        <span class="find-me-label">Find me on</span>
+                        <div class="find-me-icons">
+                            <a href="https://github.com/suryaprakashdeveloperai" target="_blank" class="social-icon" title="GitHub" aria-label="Surya Prakash T's GitHub">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/surya-prakash-8a6736274?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-icon" title="LinkedIn" aria-label="Surya Prakash T's LinkedIn">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/916382480091" target="_blank" class="social-icon" title="WhatsApp" aria-label="Surya Prakash T's WhatsApp">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.388 2.016 13.91 1.01 11.99 1.01c-5.442 0-9.87 4.372-9.874 9.802-.001 1.76.476 3.479 1.383 4.986l-.993 3.626 3.73-.974.021.012zm11.387-5.464c-.301-.15-1.78-.879-2.056-.979-.275-.1-.475-.15-.675.15-.2.3-.775.979-.95 1.179-.175.2-.35.225-.65.075-.3-.15-1.265-.467-2.41-1.485-.89-.791-1.49-1.77-1.665-2.07-.175-.3-.019-.463.13-.612.135-.135.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.589-.491-.51-.675-.52-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8 1.025-.275.3-.8 1.175-.8 2.875 0 1.7 1.24 3.35 1.41 3.575.175.225 2.44 3.724 5.91 5.221.825.356 1.471.569 1.972.727.829.263 1.585.226 2.182.137.665-.1 1.78-.727 2.03-1.43.25-.702.25-1.3.175-1.43-.075-.13-.275-.205-.575-.355z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Profile Image Wrapper -->
+            <div class="hero-image-wrapper">
+                <div class="image-container">
+                    <img src="../team-members-image/Suriya.png" alt="Surya Prakash T Portrait" class="profile-img" width="974" height="1376">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="background.js"></script>
+</body>
+
+</html>
