@@ -236,30 +236,50 @@ const initThreeJS = () => {
 // Start when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initThreeJS();
-    initContactDesktopHandler();
+    initContactHandler();
 });
 
-function initContactDesktopHandler() {
+function initContactHandler() {
     const contactBtn = document.querySelector(".btn-contact");
     if (!contactBtn) return;
     
     contactBtn.addEventListener("click", (e) => {
-        // Detect desktop (non-mobile user agent)
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        e.preventDefault();
         
-        if (!isMobile) {
-            e.preventDefault();
-            const telLink = contactBtn.getAttribute("href");
-            if (!telLink) return;
-            
-            const phoneNum = telLink.replace("tel:", "");
-            
-            navigator.clipboard.writeText(phoneNum).then(() => {
-                showToast(`Phone number copied: ${phoneNum}`);
-            }).catch(err => {
-                console.warn('Clipboard copy failed: ', err);
-            });
-        }
+        const name = contactBtn.getAttribute("data-name");
+        const phone = contactBtn.getAttribute("data-phone");
+        const email = contactBtn.getAttribute("data-email");
+        const role = contactBtn.getAttribute("data-role");
+        
+        if (!name || !phone) return;
+        
+        const formattedName = `${name} - Auraliss`;
+        
+        const vcard = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            `FN:${formattedName}`,
+            `N:${formattedName};;;;`,
+            `ORG:Auraliss`,
+            `TITLE:${role || ''}`,
+            `TEL;TYPE=CELL:${phone}`,
+            `EMAIL;TYPE=PREF,INTERNET:${email || ''}`,
+            "URL:https://auraliss.in",
+            "END:VCARD"
+        ].join("\r\n");
+
+        const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${formattedName.replace(/\s+/g, "_")}.vcf`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        
+        showToast("Contact card downloaded!");
     });
 }
 
