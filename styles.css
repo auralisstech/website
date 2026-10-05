@@ -691,9 +691,11 @@ body {
 
 /* ===== Privacy Policy Page Styles ===== */
 body.policy-page {
+    overflow-x: hidden !important;
     overflow-y: auto !important;
     height: auto !important;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
@@ -703,15 +705,16 @@ body.policy-page {
     top: 0;
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 14px 28px !important;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    z-index: 100;
+    z-index: 1000;
+    width: 100%;
 }
 
 .header-logo-link {
@@ -722,28 +725,33 @@ body.policy-page {
 }
 
 .policy-logo-icon {
-    height: 38px;
+    height: 36px;
     width: auto;
+    mix-blend-mode: multiply;
 }
 
 .policy-logo-text {
-    height: 24px;
+    height: 20px;
+    max-width: 160px;
     width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 .back-home-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 9px 20px;
     background: rgba(0, 145, 212, 0.08);
     color: var(--color-primary-blue);
     border: 1px solid rgba(0, 145, 212, 0.2);
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 600;
     text-decoration: none;
     transition: all var(--transition-medium);
+    white-space: nowrap;
 }
 
 .back-home-btn:hover {
@@ -757,14 +765,15 @@ body.policy-page {
     flex: 1;
     display: flex;
     justify-content: center;
-    padding: var(--spacing-xl) var(--spacing-md);
-    max-width: 960px;
+    align-items: flex-start;
+    padding: clamp(24px, 4vh, 48px) var(--spacing-md);
+    max-width: 920px;
     margin: 0 auto;
     width: 100%;
 }
 
 .policy-card {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(0, 0, 0, 0.08);
