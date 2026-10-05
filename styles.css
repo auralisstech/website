@@ -45,12 +45,12 @@ body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
     line-height: 1.6;
-    overflow: hidden;
-    /* Prevent scrolling completely */
-    height: 100vh;
-    /* Fill screen exactly */
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #canvas-container {
@@ -139,18 +139,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-md);
-    /* Removed min-height: 100vh to fit within body */
+    padding: clamp(70px, 10vh, 100px) var(--spacing-sm) clamp(24px, 4vh, 48px) var(--spacing-sm);
+    width: 100%;
 }
-
-
-
-
 
 .content-wrapper {
     text-align: center;
-    max-width: 900px;
+    max-width: 850px;
     width: 100%;
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -158,32 +158,27 @@ body {
 .logo-section {
     display: flex;
     flex-direction: column;
-    /* Stack vertically */
     align-items: center;
     justify-content: center;
-    gap: 0;
-    /* Removed gap */
-    margin-bottom: 12px;
-    /* significantly reduced from spacing-xl to bring slogan close */
+    gap: 4px;
+    margin-bottom: clamp(12px, 2.5vh, 24px);
     animation: fadeInUp 0.6s ease-out;
 }
 
 .logo-icon {
-    height: 120px;
-    /* Increased from 80px */
+    height: clamp(65px, 8.5vh, 88px);
     width: auto;
     transition: transform var(--transition-medium);
-    /* Blends white background of image with page background */
     mix-blend-mode: multiply;
-    /* excessive brightness/contrast forces light-gray backgrounds to white so they blend */
     filter: contrast(1.1) brightness(1.1);
 }
 
 .logo-text {
-    height: clamp(60px, 11vh, 80px);
-    /* Fluid height */
+    height: clamp(22px, 3.2vh, 34px);
+    max-width: 250px;
     width: auto;
-    margin-top: 0px;
+    margin-top: 4px;
+    object-fit: contain;
     transition: transform var(--transition-medium);
     mix-blend-mode: multiply;
     filter: contrast(1.1) brightness(1.1);
@@ -196,18 +191,19 @@ body {
 
 /* ===== Dynamic Slogan ===== */
 .slogan-container {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: clamp(16px, 3vh, 32px);
+    width: 100%;
 }
 
 .slogan {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 2.3vw, 1.5rem);
     font-weight: 400;
     color: var(--color-text-primary);
-    /* Changed to dark black (#1D1D1B) */
-    line-height: 1.8;
-    letter-spacing: 0.5px;
-    padding-left: 40px;
-    /* Shifts text right to visually balance the reserved stabilizer space */
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
 }
 
 .slogan-stabilizer {
@@ -548,31 +544,52 @@ body {
 }
 
 /* ===== Responsive Design ===== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #header {
         padding: var(--spacing-sm) var(--spacing-md);
     }
 
     .logo-icon {
-        height: 80px;
-        /* Increased for mobile */
+        height: 70px;
     }
 
     .logo-text {
-        height: auto;
-        max-height: 90px;
+        height: 28px;
+        max-width: 210px;
+    }
+
+    .slogan {
+        font-size: 1.25rem;
+    }
+
+    .coming-soon {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    #header {
+        padding: 12px 20px;
+    }
+
+    .logo-icon {
+        height: 60px;
+    }
+
+    .logo-text {
+        height: 24px;
+        max-width: 180px;
     }
 
     .login-btn {
-        padding: 10px 24px;
-        font-size: 14px;
+        padding: 8px 20px;
+        font-size: 13px;
     }
 
     .slogan {
         font-size: 1.1rem;
-        padding-left: 0;
-        line-height: 1.4;
-        width: 100%;
+        line-height: 1.5;
     }
 
     .mobile-break {
@@ -589,17 +606,14 @@ body {
         display: inline;
     }
 
-    /* .dynamic-text min-width removed for centering */
-
     .coming-soon {
-        font-size: 1.5rem;
-        /* Reduced for mobile */
-        letter-spacing: 4px;
+        font-size: 1.4rem;
+        letter-spacing: 3px;
     }
 
     .notify-btn {
-        padding: 16px 40px;
-        font-size: 14px;
+        padding: 14px 32px;
+        font-size: 13px;
     }
 
     .email-form {
@@ -613,22 +627,65 @@ body {
 }
 
 @media (max-width: 480px) {
+    #header {
+        padding: 10px 16px;
+    }
+
+    .logo-icon {
+        height: 52px;
+    }
+
+    .logo-text {
+        height: 20px;
+        max-width: 150px;
+    }
+
+    .login-btn {
+        padding: 7px 16px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
     .slogan {
         font-size: 1rem;
     }
 
     .coming-soon {
-        font-size: 2rem;
+        font-size: 1.25rem;
         letter-spacing: 2px;
     }
 
     .notify-btn {
-        padding: 14px 32px;
-        font-size: 13px;
+        padding: 12px 26px;
+        font-size: 12px;
     }
 
     .social-icons {
         gap: var(--spacing-sm);
+    }
+}
+
+@media (max-height: 680px) {
+    #main {
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+
+    .logo-section {
+        margin-bottom: 8px;
+    }
+
+    .slogan-container {
+        margin-bottom: 12px;
+    }
+
+    .coming-soon {
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+
+    .contact-info {
+        margin-top: 16px !important;
     }
 }
 
