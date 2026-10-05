@@ -615,3 +615,279 @@ body {
         gap: var(--spacing-sm);
     }
 }
+
+/* ===== Privacy Policy Page Styles ===== */
+body.policy-page {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.policy-header {
+    position: sticky !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+.header-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.policy-logo-icon {
+    height: 38px;
+    width: auto;
+}
+
+.policy-logo-text {
+    height: 24px;
+    width: auto;
+}
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(0, 145, 212, 0.08);
+    color: var(--color-primary-blue);
+    border: 1px solid rgba(0, 145, 212, 0.2);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-medium);
+}
+
+.back-home-btn:hover {
+    background: var(--color-primary-blue);
+    color: var(--color-white);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 145, 212, 0.25);
+}
+
+.policy-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.policy-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    width: 100%;
+}
+
+.policy-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, rgba(0, 145, 212, 0.1), rgba(0, 184, 217, 0.15));
+    color: var(--color-primary-blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.policy-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.policy-updated {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.policy-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 145, 212, 0.3), rgba(0, 0, 0, 0.05));
+    margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+}
+
+.policy-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.policy-section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.policy-section p {
+    font-size: 1rem;
+    color: #4A4A4A;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.policy-section p:last-child {
+    margin-bottom: 0;
+}
+
+.policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.policy-section ul li {
+    font-size: 0.98rem;
+    color: #4A4A4A;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 24px;
+}
+
+.policy-section ul li::before {
+    content: "•";
+    color: var(--color-primary-blue);
+    font-weight: bold;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 6px;
+    top: -2px;
+}
+
+.policy-section a {
+    color: var(--color-primary-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.policy-section a:hover {
+    color: var(--color-secondary-blue);
+}
+
+.policy-section code {
+    background: rgba(0, 145, 212, 0.08);
+    color: var(--color-primary-blue);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.contact-card {
+    background: rgba(0, 145, 212, 0.04);
+    border: 1px solid rgba(0, 145, 212, 0.15);
+    border-radius: 14px;
+    padding: var(--spacing-md);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.contact-item .label {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    min-width: 120px;
+}
+
+.contact-item .value {
+    color: #4A4A4A;
+}
+
+.contact-item .value.link {
+    color: var(--color-primary-blue);
+    text-decoration: underline;
+}
+
+.policy-footer {
+    padding: var(--spacing-md);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: var(--spacing-xl);
+}
+
+.policy-footer a {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    margin: 0 6px;
+    font-weight: 500;
+}
+
+.policy-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .policy-main {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .policy-card {
+        padding: var(--spacing-md);
+    }
+
+    .policy-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .contact-item .label {
+        min-width: auto;
+    }
+}
